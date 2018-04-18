@@ -1,0 +1,88 @@
+connectionPool: 
+
+# The fully qualified classname of the client Channelizer that defines how to connect to the server.
+    channelizer: org.apache.tinkerpop.gremlin.driver.Channelizer$WebSocketChannelizer
+
+# Determines if SSL should be enabled or not. If enabled on the server then it must be enabled on the client.
+    enableSsl: false
+
+# Length of time in milliseconds to wait on an idle connection before sending a keep-alive request. Set to zero to disable this feature.
+    keepAliveInterval: 1800000
+
+# The X.509 certificate chain file in PEM format.
+    keyCertChainFile: none
+
+# The PKCS#8 private key file in PEM format.
+    keyFile: none
+
+# The password of the keyFile if it is password-protected
+    keyPassword: none
+
+# The maximum length in bytes that a message can be sent to the server. This number can be no greater than the setting of the same name in the server configuration.
+    maxContentLength: 655360
+
+# The maximum number of in-flight requests that can occur on a connection.
+    maxInProcessPerConnection: 8
+
+# The maximum number of times that a connection can be borrowed from the pool simultaneously.
+    maxSimultaneousUsagePerConnection: 32
+
+# The maximum size of a connection pool for a host.
+    maxSize: 32
+
+# The amount of time in milliseconds to wait for a new connection before timing out.
+    maxWaitForConnection: 3000
+
+# The amount of time in milliseconds to wait for a session to close before timing out (does not apply to sessionless connections).
+    maxWaitForSessionClose: 3000
+
+# The minimum number of in-flight requests that can occur on a connection.
+    minInProcessPerConnection: 1
+
+# The maximum number of times that a connection can be borrowed from the pool simultaneously.
+    minSimultaneousUsagePerConnection: 8
+
+# The minimum size of a connection pool for a host.
+    minSize: 2
+
+# The amount of time in milliseconds to wait before trying to reconnect to a dead host.
+    reconnectInterval: 1000
+
+# The override value for the size of the result batches to be returned from the server.
+    resultIterationBatchSize: 64
+
+# File location for a SSL Certificate Chain to use when SSL is enabled. If this value is not provided and SSL is enabled, the TrustManager will be established with a self-signed certificate which is NOT suitable for production purposes.
+    trustCertChainFile: none
+
+# The list of hosts that the driver will connect to.
+hosts: 
+    - 20.28.30.22
+
+# Sets the AuthProperties.Property.JAAS_ENTRYproperties for authentication to Gremlin Server.
+jaasEntry: none
+
+# Size of the pool for handling request/response operations. available processors
+nioPoolSize: 8
+
+# The password to submit on requests that require authentication.
+password: none
+
+# The port of the Gremlin Server to connect to. The same port will be applied for all hosts.
+port: 8182
+
+# Sets the AuthProperties.Property.PROTOCOLproperties for authentication to Gremlin Server.
+protocol: none
+
+serializer: 
+
+# The fully qualified class name of the MessageSerializer that will be used to communicate with the server. Note that the serializer configured on the client should be supported by the server configuration.
+    className: org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV1d0
+
+# A Map of configuration settings for the serializer.
+    config: { ioRegistries: [org.janusgraph.graphdb.tinkerpop.JanusGraphIoRegistry] , serializeResultToString: false}
+
+# The username to submit on requests that require authentication.
+username: none
+
+# Size of the pool for handling background work.  available processors * 2
+workerPoolSize: 16
