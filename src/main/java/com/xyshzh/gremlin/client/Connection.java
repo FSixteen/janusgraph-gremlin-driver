@@ -9,6 +9,10 @@ import java.util.Vector;
 
 import org.apache.tinkerpop.gremlin.driver.Client;
 import org.apache.tinkerpop.gremlin.driver.Cluster;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.xyshzh.gremlin.execute.Execute;
 
 /**
  * @author Shengjun Liu
@@ -22,6 +26,7 @@ public interface Connection {
   void close();
 
   public final static class ClientConnection implements Connection {
+    private static final Logger log = LoggerFactory.getLogger(Execute.class);
 
     private Cluster.Builder builder;
     private Integer clientMinSize = 10;
@@ -31,6 +36,7 @@ public interface Connection {
     private Vector<Client> clients = new Vector<Client>();
 
     public ClientConnection(String resourcePath, boolean autoCreate) {
+      log.info("");
       File file = null;
       try {
         file = new File(resourcePath);
